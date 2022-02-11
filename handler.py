@@ -2,52 +2,54 @@ import requests
 import globals
 
 """
-- Default limit to results = 30
+Backend for website that outputs data of damages 
+Url examples
 
-What to fetch - what information can you filter with:
-- Circuits - Season
-Driver information - Season
-Race Results - Season, Round, Driver, Circuit
-Race schedule - Season 
+Season Circuit Status Drivers = All
+https://ergast.com/api/f1/results.json
 
-Lap Times - Season, Round, Driver, Lap
-Pit stops - Season, Round, Driver, Stop
+Season (2020), Circuit Status Drivers = All
+https://ergast.com/api/f1/2020/results.json
+
+Season (2020), Circuit (Monza), Status Drivers = All
+https://ergast.com/api/f1/2020/circuits/monza/results.json
+
+Season (1994), Circuit (Monza), Status (number of status, out of oil) , Drivers = All
+https://ergast.com/api/f1/1994/circuits/monza/status/60/results.json
 
 """
 
-class Circuit():
-    def __init__(self, season = "all"):
-        if season == "all":
-            self.currentURL = globals.baseURL + "circuits" + globals.endURL
+# Fetch Circuit Information
+class Handler():
+    def __init__(self) -> None:
+        pass 
+
+    def showCircuit(self, season = "all"):
+        if season != "all":
+            self.currentURL = globals.startURL + str(season) + "/circuits.json" + globals.limit
         else:
-            self.currentURL = globals.baseURL + f"{season}/circuits" + globals.endURL
-    
-    def show(self):
+            self.currentURL = globals.startURL + "circuits.json" + globals.limit
         self.data = requests.get(self.currentURL).json()
         self.output = []
         for circuit in self.data["MRData"]["CircuitTable"]["Circuits"]:
-            self.output.append("ID: {}, Name: {}, Country: {}, URL: {}".format(circuit["circuitId"], circuit["circuitName"], circuit["Location"]["country"], circuit["url"]))
+            self.output.append("{},{},{}".format(circuit["circuitId"], circuit["circuitName"], circuit["url"]).split(","))
         return self.output
-
-class Driver():
-    def __init__(self, season = "all"):
-        if season == "all":
-            self.currentURL = globals.baseURL + "drivers" + globals.endURL
+    
+    def showAccidents(self, season = "all"):
+        if season != "all":
+            self.currentURL = globals.startURL + str(season) + "/results.json" + globals.limit
         else:
-            self.currentURL = globals.baseURL + f"{season}/drivers" + globals.endURL
-
-    def show(self):
+            self.currentURL = globals.startURL + "results.json" + globals.limit
         self.data = requests.get(self.currentURL).json()
         self.output = []
-        for driver in self.data["MRData"]["DriverTable"]["Drivers"]:
-            self.output.append("ID: {}, Name: {} {}, URL: {}".format(driver["driverId"], driver["givenName"], driver["familyName"], driver["nationality"]))
+        for race in self.data["MRData"]["RaceTable"]["Races"]:
+            for accident in race["Results"]:
+                self.output.append("{},{}".format(race["Circuit"]["circuitId"], accident["status"]).split(","))
         return self.output
 
-# season, round, driver, circuit
 def main():
-    circuit = Circuit()
-    driver = Driver() 
-    print(circuit.show())
-    print(driver.show())
+    handler = Handler()
+    print(*handler.showAccidents(2021), sep="\n")
+
 
 main()

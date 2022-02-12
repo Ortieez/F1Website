@@ -2,28 +2,18 @@ import requests
 import globals
 
 """
-Backend for website that outputs data of damages 
-Url examples
-
-Season Circuit Status Drivers = All
-https://ergast.com/api/f1/results.json
-
-Season (2020), Circuit Status Drivers = All
-https://ergast.com/api/f1/2020/results.json
-
-Season (2020), Circuit (Monza), Status Drivers = All
-https://ergast.com/api/f1/2020/circuits/monza/results.json
-
-Season (1994), Circuit (Monza), Status (number of status, out of oil) , Drivers = All
-https://ergast.com/api/f1/1994/circuits/monza/status/60/results.json
+# ! Usage of handler
+# * handler.showAccidents("zandvoort") "track is required, season is default all" || handler.showAccidents("zandvoort", 2021)
+# * handler.showCircuit(2021) || handler.showCircuit() "default is all"
 
 """
 
-# Fetch Circuit Information
+
 class Handler():
     def __init__(self) -> None:
         pass 
 
+    # Fetch Circuit Information
     def showCircuit(self, season = "all"):
         if season != "all":
             self.currentURL = globals.startURL + str(season) + "/circuits.json" + globals.limit
@@ -35,21 +25,19 @@ class Handler():
             self.output.append("{},{},{}".format(circuit["circuitId"], circuit["circuitName"], circuit["url"]).split(","))
         return self.output
     
-    def showAccidents(self, season = "all"):
+    # Fetch Accidents for a track Information
+    def showAccidents(self, circuit, season = "all", ):
         if season != "all":
-            self.currentURL = globals.startURL + str(season) + "/results.json" + globals.limit
+            self.currentURL = globals.startURL + str(season) + "/circuits/{}".format(circuit) + "/results.json" + globals.limit
         else:
-            self.currentURL = globals.startURL + "results.json" + globals.limit
+            self.currentURL = globals.startURL + "circuits/{}".format(circuit) + "/results.json" + globals.limit
         self.data = requests.get(self.currentURL).json()
         self.output = []
         for race in self.data["MRData"]["RaceTable"]["Races"]:
             for accident in race["Results"]:
-                self.output.append("{},{}".format(race["Circuit"]["circuitId"], accident["status"]).split(","))
+                if accident["status"] != "Finished":
+                    if accident["status"].startswith("+"):
+                        pass
+                    else:
+                        self.output.append("{},{}".format(race["Circuit"]["circuitId"], accident["status"]).split(","))
         return self.output
-
-def main():
-    handler = Handler()
-    print(*handler.showAccidents(2021), sep="\n")
-
-
-main()

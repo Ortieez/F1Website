@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<form action="{{ url_for('accidents') }}" method="post">
+    <label for="circuit">Choose a circuit</label>
+        <select id="circuit" name="circuit">
+            {% for circuit in circuits %}<option value="{{ circuit[0] }}">{{ circuit[1] }}</option>{% endfor %}
+        </select>
+        <label for="season">Choose a season</label>
+        <select id="season" name="season">
+            <option value="all">All</option>
+            {% for season in seasons %}<option value="{{ season }}">{{ season }}</option>{% endfor %}
+        </select>
+    </label>
+    <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  background-color: #1f1f1f !important;
+  color: white !important;
+}
+
+.grid {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid .box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 500px;
+}
+
+.box .styling {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #363636;
+  border-radius: 15px;
+  width: 85%;
+  height: 475px;
+}

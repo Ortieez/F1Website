@@ -1,14 +1,50 @@
 <!DOCTYPE html>
-<form action="{{ url_for('accidents') }}" method="post">
-    <label for="circuit">Choose a circuit</label>
-        <select id="circuit" name="circuit">
-            {% for circuit in circuits %}<option value="{{ circuit[0] }}">{{ circuit[1] }}</option>{% endfor %}
-        </select>
-        <label for="season">Choose a season</label>
-        <select id="season" name="season">
-            <option value="all">All</option>
-            {% for season in seasons %}<option value="{{ season }}">{{ season }}</option>{% endfor %}
-        </select>
-    </label>
-    <input type="submit" value="Submit">
-</form>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Accidents Stats</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style/selection.css') }}">
+</head>
+
+<body>
+    <header>
+        <header class="top_text"><a href="/">F1 Accidents Stats</a></header>
+    </header>
+    <div class="middle">
+        <div class="box center">
+            <h3>Choose a circuit and season to continue:</h3>
+            <form action="{{ url_for('accidents') }}" method="post">
+                <label for="circuit"></label>
+                <select id="circuit" name="circuit" required>
+                    {% for circuit in circuits %}<option value="{{ circuit[0] }}">{{ circuit[1] }}</option>{% endfor %}
+                </select>
+                <br>
+                <label for="season"></label>
+                <select id="season" name="season" required>
+                    <option value="all">All</option>
+                    {% for season in seasons %}<option value="{{ season }}">{{ season }}</option>{% endfor %}
+                </select>
+                </label>
+                <br>
+                <input type="submit" value="Go!" class="submit">
+            </form>
+        </div>
+        <div class="box">
+            <h3 class="center">About this project</h3>
+            <p>
+                This project was built using ergast api that provides a lot of great
+                data that I used in this website. Once you enter your desired track
+                and season, the app will give you 3 graphs that show you "Type of accidents,
+                Drivers that had the most accidents and teams."
+                <br><br>
+                Built By <a href="https://www.ortieez.com">Adam Lipert</a>
+            </p>
+
+        </div>
+    </div>
+</body>
+
+</html>

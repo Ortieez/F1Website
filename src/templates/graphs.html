@@ -10,13 +10,8 @@
 </head>
 
 <body>
-    <header><a>F1 Accidents Stats</a></header>
+    <header class="top_text"><a href="/">F1 Accidents Stats</a></header>
     <div class="grid">
-        <div class="box">
-            <div class="info styling">
-                info
-            </div>
-        </div>
         <div class="box">
             <div class="styling">
                 <embed type="image/svg+xml" src={{typeOfAccidents|safe}} style='max-width:80%' />
@@ -31,6 +26,13 @@
         <div class="box">
             <div class="styling">
                 <embed type="image/svg+xml" src={{constructorsOfAccidents|safe}} style='max-width:80%' />
+            </div>
+        </div>
+        <div class="box">
+            <div class="info styling">
+                <p> Made possible with <a href="https://ergast.com/mrd/">Ergast API (Data)</a>, <a
+                        href="https://www.pygal.org/en/stable/">Pygal (Graphs)</a><br>
+                    Made By <a href="https://www.ortieez.com">Adam Lipert</a></b></p>
             </div>
         </div>
     </div>

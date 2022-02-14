@@ -1,10 +1,13 @@
-
-![Logo](https://lh3.googleusercontent.com/pw/AM-JKLXDj-2tSIviX6YboSRhmVrPzFbOjCLsbcvL-dRH1yS3zeYM84PkdalSGK2oqIQNCv4vBSAcX2e37dKHs0N72Qg19HOUM-XiuKQoqv4luk68WZoTtrpdXiuiadVnG1mhhKP72iK82tdsvPQux89DpGc=w1193-h692-no?authuser=0)
-
 # F1 Accidents
 
 This website will show types of accidents that happened on a
 track that user chooses.
+
+# Photos from app
+
+![Selection](https://lh3.googleusercontent.com/pw/AM-JKLUYvp8j2KdyoDsFxWftIZFSuZ6YX5DxfEAS9UAWw0mXb9_uGI0nmKC7TPyOhviMIRORGFb6f2VuhhMupmbRmW5aBKPgRlds3B4zqMB0-6X9uQXBIkNAog--t0ZZV7fU-RCwHJljGg-8zZV1M9Lbdh8=w1152-h648-no?authuser=0)
+
+![Graphs](https://lh3.googleusercontent.com/pw/AM-JKLXuVoA7VDgjXCAZQ8f2ZQcsCzKcx2Z2cxtVIH--DvXgb8jymMYl4xcN1NG-lQwS0DSAUREEZ3vHG1L7G7vjmrjdE9AHFkRs2-3CKkQ1vO3bMXo3jwlhE6nbj37aAmYsCWVm1ZOyybHQSzn_mvDSWig=w1144-h642-no?authuser=0)
 
 ## License
 

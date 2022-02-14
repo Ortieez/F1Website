@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+body {
+  margin: 0;
+  background-color: #1f1f1f !important;
+  color: white !important;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.top_text {
+  margin: 25px 0 10px 25px;
+}
+
+.info {
+  color: #ff9100;
+}
+
+a {
+  font-size: larger;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+    color: #6d6d6d;
+}
+
+.middle {
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #363636;
+    width: 25%;
+    height: 250px;
+    border-radius: 15px;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.center {
+    text-align: center;
+}
+
+.box p {
+    font-weight: 400;
+    padding: 10px;
+}
+
+.box select {
+    width: 249px;
+    margin: 5px;
+}
+
+.submit {
+	background-color:#ff7b00;
+	border-radius:15px;
+	border:1px solid #bb5a00;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:5px 50px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+    margin: 10px;
+}
+
+.submit:hover {
+	background-color:#c76000;
+}
+
+.submit:active {
+	position:relative;
+	top:1px;
+}
+
+        

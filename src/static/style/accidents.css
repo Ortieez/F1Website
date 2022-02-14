@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
 body {
   margin: 0;
   background-color: #1f1f1f !important;
   color: white !important;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
 }
 
 .grid {
@@ -28,4 +32,24 @@ body {
   border-radius: 15px;
   width: 85%;
   height: 475px;
+}
+
+.top_text {
+  margin: 25px 0 10px 25px;
+}
+
+.info {
+  color: #ff9100;
+}
+
+a {
+  font-size: larger;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #6d6d6d;
 }

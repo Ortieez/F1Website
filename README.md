@@ -5,6 +5,7 @@ track that user chooses.
 
 # To Run
 
+(Windows)
 To run this app you should run this in a virtual environment.
 Inside the main folder create virtual environment:
 ```
